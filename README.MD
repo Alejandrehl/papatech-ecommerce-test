@@ -18,16 +18,45 @@ Además de lo mencionado anteriormente agregué unas cosas extra que a mi parece
 ### Technical Questions
 
 1. ¿Qué es React, React Native y Redux?
+   - React: Potente librería para desarrollo frontend.
+   - React Native: Framework de JavaScript para desarrollo mobile híbrido.
+   - Redux: Librería para manejo de estados globales en una aplicación. Cabe destacar que se puede usar en múltiples frameworks y librerías, no es especifico de React.
 2. ¿Cuál es tu experiencia con React Native?
+   - Junior Developer Año 2017: Desarrollo muy básico de la aplicación mobile de una Startup en la cúal trabaje en ese año, aprendí más que nada a maquetear y a consumir servicios rest con axios. (La Startup se llamaba SocialBuyers/EncargaHoy y ya no existe)
+   - Semi Senior Developer Año 2019: Desarrollé la aplicación mobile para la empresa [Organizame](https://www.organizame.cl/), es más, creo que aún ocupan lo que dejé yo en aquel tiempo.
+   - Tech Lead Año 2020-2021: Fuí el Tech Lead y el desarrollador principal de la aplicación WiCar de Kaufmann. Estuve a cargo de TODAS las decisiones técnicas del proyecto, de mentorear a los demás devs, repartir tareas y comunicarme activamente con el cliente. Además de React Native utilicé React y NextJS para las partes web, respecto a la arquitectura y el backend podemos hablar otro día jeje.
 3. ¿Diferencia entre app nativa y híbrida?
+   - APP Nativa: Aplicación desarrollada en Java/Kotlin para Android y Swift/Objective-C para iOS. Este tipo de desarrollo es más costoso pero nos permite sacar el máximo provecho al dispositivo móvil objetivo, además las aplicaciones tienen un rendimiento único y se reducen riesgos como problemas de interfaz. (Menciono lo anterior porque en React Native es muy cómun tener problemas para que la interfaz se vea bien en TODOS los dispositivos, WiCar se veía del asco de iPhone 6 para abajo :laughing:).
+   - App Híbrida: App desarrollada para multiples plataformas con un solo código fuente, un ejemplo de esto es React Native, Flutter y Ionic((?) nunca lo he ocupado la verdad).
 4. ¿Qué librerías se involucran cuando guardamos un estado con Redux?
+   - Se necesita un Middleware como Redux Thunk o Redux Saga.
+   - Especificamente en React necesitamos utiliar react-redux.
 5. ¿Diferencia entre las variables const y let?
+   - `const`: Variables que no puedes cambiar su valor.
+   - `let`: Variables que pueden cambiar su valor.
 6. ¿Diferencia entre stateful y stateless?
+   - `stateful`: Componente que tiene estados, es decir, variables que pueden cambiar su valor sin necesidad de hacer un refresh de la página/pantalla/etc.
+   - `stateless`: Componente que no tiene estados. Normalmente solo reciben props y se pintan a partir de estas.
 7. ¿Has trabajado con Objective-C o Swift?
+   - Solo he trabajado con Swift una véz a nivel profesional, desarrolle las interfaces de la aplicación [BadgeHeroes](https://www.badgeheroes.com/?lang=en)
 8. ¿Tienes experiencia con CI/CD?
+   - Si, implemente CI/CD en Azure DevOps para el proyecto WiCar.
+   - Para aplicaciones móvil nunca he implementado CI/CD pero conozco [Fastlane](https://fastlane.tools/)
+   - En mis trabajos anteriores utilizabamos Gitlab, Docker y AWS, nunca metí manos en la implementación pero logré entenderla.
 9. ¿Qué control de versiones utilizas?
+   - GIT
 10. ¿Has hecho algún deploy de app a las Stores (Google Play / App Store / AppGallery)?¿Cómo lo has realizado?¿Has tenido algún problema?
+
+    - Si, he desplegado varias aplicaciones. Para la Play Store necesitas tener una cuenta que cuesta alrededor de 25USD y solo se paga una vez. Puedes subir el APK pero lo recomendable es subir el APP Bundle (archivo .abb) ya que es el compilado optimizado de la aplicación Android. Para iOS necesitas pagar anualmente 99USD y existen dos formas de subir la app, una es generando el .ipa con xCode y subiendolo con Transporte y la otra es subirla directamente con xCode a Testflight y de Testflight pasarlo a prod. En Ambos casos hay que esperar la revisión por parte de la compañia.
+    - Si he tenido un monton de problemas pero hay uno muy cuatico que es cuando se me perdieron los certificados para generar el App Bundle de Android y tuve que contactar a google para poder recuperar todo. Creo que podría contarlo mejor en una conversacion :)
+
 11. Menciona algunas buenas prácticas que hayas utilizado en el desarrollo de apps.
+
+    - Linter para obligar a todos a programar como corresponde :laughing:
+    - Crear diferentes ambientes para un completo testeo de la aplicación. Develop, Staging, Prod.
+    - Generar documentación del proyecto ya que es tanto útil para los nuevos miembros del equipo como para mi.
+    - Llevar un buen Gitflow
+    - Hmmmm :thinking:
 
 ### Pending Tasks
 
