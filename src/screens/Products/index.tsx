@@ -24,7 +24,11 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
 
   return (
     <View style={styles.container}>
-      {loading && <Loading />}
+      {loading && (
+        <View style={styles.loadingContainer}>
+          <Loading />
+        </View>
+      )}
       {products && products.length > 0 && (
         <FlatList
           columnWrapperStyle={styles.columWrapper}
