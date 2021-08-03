@@ -20,14 +20,17 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         style={styles.image}
         PlaceholderContent={<ActivityIndicator />}
       />
-      <Text>{product.name}</Text>
-      <Text>{product.type}</Text>
-      <Text>{product.price}</Text>
+      <View style={styles.infoContainer}>
+        <Text style={styles.typeText}>{product.type}</Text>
+        <Text style={styles.nameText}>{product.name}</Text>
+        <Text style={styles.priceText}>{product.price}</Text>
+      </View>
       <Button
         icon={<FontAwesomeIcon icon={faShoppingCart} size={20} color="white" />}
         iconRight
         title="Add to cart"
-        raised
+        containerStyle={styles.buttonContainer}
+        titleStyle={styles.buttonTitle}
       />
     </View>
   )
