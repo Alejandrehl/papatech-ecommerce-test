@@ -27,6 +27,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         icon={<FontAwesomeIcon icon={faShoppingCart} size={20} color="white" />}
         iconRight
         title="Add to cart"
+        raised
       />
     </View>
   )

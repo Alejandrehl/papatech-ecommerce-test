@@ -3,6 +3,9 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    borderWidth: 1,
+  },
+  columWrapper: {
+    justifyContent: 'space-evenly',
+    marginVertical: 20,
   },
 })
