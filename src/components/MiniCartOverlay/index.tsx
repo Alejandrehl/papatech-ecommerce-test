@@ -1,4 +1,5 @@
 import React from 'react'
+import { View } from 'react-native'
 import { Overlay, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 
@@ -9,11 +10,13 @@ import styles from './styles'
 
 type Props = {
   readonly miniCartVisible: boolean
+  readonly badgeCount: number
   readonly closeMiniCart: () => void
 }
 
 const MiniCartOverlay: React.FC<Props> = ({
   miniCartVisible,
+  badgeCount,
   closeMiniCart,
 }) => {
   return (
@@ -21,13 +24,18 @@ const MiniCartOverlay: React.FC<Props> = ({
       isVisible={miniCartVisible}
       onBackdropPress={() => closeMiniCart()}
       overlayStyle={styles.container}>
-      <Text>Hello from Overlay!</Text>
+      <View style={styles.content}>
+        <Text style={styles.titleText}>
+          Tu carrito - {badgeCount} productos
+        </Text>
+      </View>
     </Overlay>
   )
 }
 
 const mapStateToProps = (state: RootState) => ({
   miniCartVisible: state.cart.miniCartVisible,
+  badgeCount: state.cart.badgeCount,
 })
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
