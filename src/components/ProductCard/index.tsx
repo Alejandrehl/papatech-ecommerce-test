@@ -14,7 +14,7 @@ type Props = {
 
 const ProductCard: React.FC<Props> = ({ product }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Image
         source={{ uri: product.image }}
         style={styles.image}
@@ -24,7 +24,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
       <Text>{product.type}</Text>
       <Text>{product.price}</Text>
       <Button
-        icon={<FontAwesomeIcon icon={faShoppingCart} size={25} />}
+        icon={<FontAwesomeIcon icon={faShoppingCart} size={20} color="white" />}
         iconRight
         title="Add to cart"
       />
