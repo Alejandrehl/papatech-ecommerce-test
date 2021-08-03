@@ -3,7 +3,19 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingVertical: '5%',
+    paddingHorizontal: '5%',
+  },
+  titleText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  buttonContainer: {
+    borderRadius: 50,
+    marginBottom: '10%',
+  },
+  buttonTitle: {
+    paddingHorizontal: 15,
   },
 })

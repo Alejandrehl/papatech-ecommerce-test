@@ -40,7 +40,7 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
           renderItem={({ item }) => <ProductCard product={item} />}
         />
       )}
-      <MiniCartOverlay isVisible />
+      <MiniCartOverlay />
     </View>
   )
 }
