@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView, View } from 'react-native'
-import { Button, Overlay, Text } from 'react-native-elements'
+import { Avatar, Button, Overlay, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 import currency from 'currency.js'
 
@@ -54,12 +54,22 @@ const MiniCartOverlay: React.FC<Props> = ({
                   borderRadius: 30,
                   marginBottom: 10,
                 }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
-                  {cartProduct.product.name}
-                </Text>
-                <Text style={{ fontSize: 14, color: 'gray' }}>
-                  {cartProduct.product.type}
-                </Text>
+                <View style={{ flexDirection: 'row' }}>
+                  <Avatar
+                    rounded
+                    source={{
+                      uri: cartProduct.product.image,
+                    }}
+                  />
+                  <View>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+                      {cartProduct.product.name}
+                    </Text>
+                    <Text style={{ fontSize: 14, color: 'gray' }}>
+                      {cartProduct.product.type}
+                    </Text>
+                  </View>
+                </View>
                 <View
                   style={{
                     flexDirection: 'row',
