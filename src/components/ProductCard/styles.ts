@@ -7,6 +7,7 @@ export default StyleSheet.create({
     borderRadius: 30,
     borderWidth: 1,
     marginHorizontal: 5,
+    padding: 10,
   },
   image: {
     width: 100,
