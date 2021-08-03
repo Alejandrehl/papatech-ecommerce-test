@@ -1,6 +1,7 @@
 import {
   ADD_PRODUCT_TO_CART,
   CLOSE_MINI_CART,
+  PAY_SHOPPING_CART,
   REMOVE_PRODUCT_FROM_CART,
   SET_LOADING,
   SHOW_MINI_CART,
@@ -85,6 +86,12 @@ export default (state = initialState, action: any) => {
       return {
         ...state,
         products: removeProductFromCart(state.products, action.payload),
+      }
+    case PAY_SHOPPING_CART:
+      return {
+        ...state,
+        products: [],
+        badgeCount: 0,
       }
     case SHOW_MINI_CART:
       return {
