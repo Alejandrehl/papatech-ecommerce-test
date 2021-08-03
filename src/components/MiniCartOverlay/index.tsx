@@ -48,9 +48,14 @@ const MiniCartOverlay: React.FC<Props> = ({
               <View key={cartProduct.product.id} style={{ borderWidth: 1 }}>
                 <Text>{cartProduct.product.name}</Text>
                 <Text>{cartProduct.product.type}</Text>
-                <Text>{cartProduct.product.price}</Text>
-                <Text>{cartProduct.quantity}</Text>
-                <Text>{cartProduct.product.price * cartProduct.quantity}</Text>
+                <View style={{ flexDirection: 'row' }}>
+                  <Text>
+                    {cartProduct.product.price} x {cartProduct.quantity}
+                  </Text>
+                  {/* <Text>
+                    {cartProduct.product.price * cartProduct.quantity}
+                  </Text> */}
+                </View>
               </View>
             )
           })}
