@@ -3,13 +3,9 @@ import api from '../../utils/api'
 
 import { GET_PRODUCTS, SET_ERROR, SET_LOADING } from './types'
 
-export const setLoading = () => {
-  return { type: SET_LOADING }
-}
-
 export const getProducts = () => async (dispatch: AppDispatch) => {
   try {
-    setLoading()
+    dispatch({ type: SET_LOADING })
 
     const res = await api.get('')
 

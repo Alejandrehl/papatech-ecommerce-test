@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 
+import Loading from '../../components/Loading/index'
 import { getProducts } from '../../redux/actions/product.action'
 import { Product } from '../../redux/reducers/product.reducer'
 import { RootState } from '../../store'
@@ -20,11 +21,7 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return (
-    <View style={styles.container}>
-      <Text>ProductScreen</Text>
-    </View>
-  )
+  return <View style={styles.container}>{loading && <Loading />}</View>
 }
 
 const mapStateToProps = (state: RootState) => ({
