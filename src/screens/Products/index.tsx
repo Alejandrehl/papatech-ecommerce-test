@@ -28,7 +28,9 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
       {products &&
         products.length > 0 &&
         products.map((product: Product) => (
-          <Text key={`${product.name}-${product.tail}`}>{product.name}</Text>
+          <Text key={`${product.name}-${product.tail}`}>
+            {product.name} - {product.price}
+          </Text>
         ))}
     </View>
   )
