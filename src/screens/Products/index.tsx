@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { View } from 'react-native'
+import { Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 
 import Loading from '../../components/Loading/index'
@@ -21,7 +22,16 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return <View style={styles.container}>{loading && <Loading />}</View>
+  return (
+    <View style={styles.container}>
+      {loading && <Loading />}
+      {products &&
+        products.length > 0 &&
+        products.map((product: Product) => (
+          <Text key={`${product.name}-${product.tail}`}>{product.name}</Text>
+        ))}
+    </View>
+  )
 }
 
 const mapStateToProps = (state: RootState) => ({
