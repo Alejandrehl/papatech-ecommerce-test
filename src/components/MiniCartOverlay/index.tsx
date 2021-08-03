@@ -61,36 +61,37 @@ const MiniCartOverlay: React.FC<Props> = ({
                       uri: cartProduct.product.image,
                     }}
                   />
-                  <View>
+                  <View style={{ flex: 1 }}>
                     <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
                       {cartProduct.product.name}
                     </Text>
                     <Text style={{ fontSize: 14, color: 'gray' }}>
                       {cartProduct.product.type}
                     </Text>
+                    <View
+                      style={{
+                        flex: 1,
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                      }}>
+                      <Text>
+                        {currency(cartProduct.product.price, {
+                          symbol: '$',
+                          precision: 0,
+                        }).format()}{' '}
+                        x {cartProduct.quantity}
+                      </Text>
+                      <Text>
+                        {currency(
+                          cartProduct.product.price * cartProduct.quantity,
+                          {
+                            symbol: '$',
+                            precision: 0,
+                          },
+                        ).format()}
+                      </Text>
+                    </View>
                   </View>
-                </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                  }}>
-                  <Text>
-                    {currency(cartProduct.product.price, {
-                      symbol: '$',
-                      precision: 0,
-                    }).format()}{' '}
-                    x {cartProduct.quantity}
-                  </Text>
-                  <Text>
-                    {currency(
-                      cartProduct.product.price * cartProduct.quantity,
-                      {
-                        symbol: '$',
-                        precision: 0,
-                      },
-                    ).format()}
-                  </Text>
                 </View>
               </View>
             )
