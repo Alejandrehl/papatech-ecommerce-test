@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { View } from 'react-native'
-import { Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 
 import Loading from '../../components/Loading/index'
+import ProductCard from '../../components/ProductCard'
 import { getProducts } from '../../redux/actions/product.action'
 import { Product } from '../../redux/reducers/product.reducer'
 import { RootState } from '../../store'
@@ -28,9 +28,10 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
       {products &&
         products.length > 0 &&
         products.map((product: Product) => (
-          <Text key={`${product.name}-${product.tail}`}>
-            {product.name} - {product.price}
-          </Text>
+          <ProductCard
+            key={`${product.name}-${product.price}`}
+            product={product}
+          />
         ))}
     </View>
   )

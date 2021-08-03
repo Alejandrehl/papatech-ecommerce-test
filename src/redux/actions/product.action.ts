@@ -13,6 +13,8 @@ export const getProducts = () => async (dispatch: AppDispatch) => {
     const payload = products.map((product: Product) => {
       const min = Math.ceil(12990)
       const max = Math.floor(59990)
+
+      // eslint-disable-next-line security-node/detect-insecure-randomness
       const price = Math.floor(Math.random() * (max - min + 1) + min)
 
       return {
