@@ -1,4 +1,4 @@
-# Papa Tech Ecommerce Test
+# Papa Tech Ecommerce Test :pizza::fire:
 
 Para temas prácticos de la prueba utilicé el endpoint [https://amiiboapi.com/api/amiibo/?character=Mario](https://amiiboapi.com/api/amiibo/?character=Mario). Mi personaje favorito es Cloud Strife pero solo me aparecieron 2 registros :cry:.
 
