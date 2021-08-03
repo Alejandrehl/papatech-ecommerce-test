@@ -22,6 +22,16 @@ const MiniCartOverlay: React.FC<Props> = ({
   cartProducts,
   closeMiniCart,
 }) => {
+  const getTotal = () => {
+    let total = 0
+
+    cartProducts.forEach((cartProduct: CartProduct) => {
+      total += cartProduct.product.price * cartProduct.quantity
+    })
+
+    return total
+  }
+
   return (
     <Overlay
       isVisible={miniCartVisible}
@@ -31,15 +41,21 @@ const MiniCartOverlay: React.FC<Props> = ({
         <Text style={styles.titleText}>
           Tu carrito - {badgeCount} productos
         </Text>
-        <View style={{ flex: 1, borderWidth: 1 }}>
+        <ScrollView
+          style={{ flex: 1, paddingBottom: '20%', marginVertical: '5%' }}>
           {cartProducts.map((cartProduct: CartProduct) => {
             return (
-              <View key={cartProduct.product.id}>
+              <View key={cartProduct.product.id} style={{ borderWidth: 1 }}>
                 <Text>{cartProduct.product.name}</Text>
+                <Text>{cartProduct.product.type}</Text>
+                <Text>{cartProduct.product.price}</Text>
+                <Text>{cartProduct.quantity}</Text>
+                <Text>{cartProduct.product.price * cartProduct.quantity}</Text>
               </View>
             )
           })}
-        </View>
+        </ScrollView>
+        <Text>TOTAL: {getTotal()}</Text>
         <Button
           title="Realizar compra"
           containerStyle={styles.buttonContainer}
