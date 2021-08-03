@@ -22,6 +22,10 @@
 10. ¿Has hecho algún deploy de app a las Stores (Google Play / App Store / AppGallery)?¿Cómo lo has realizado?¿Has tenido algún problema?
 11. Menciona algunas buenas prácticas que hayas utilizado en el desarrollo de apps.
 
+### Pending Tasks
+
+1. Al momento de sumar o restar elementos en el overlay del carrito no se refresca el valor de la cantidad.
+
 ### Libraries & Dependencies
 
 1. [Eslint Config Rokket Labs](https://github.com/rokket-labs/eslint-config-rokket-labs): Esta es una configuración de Eslint que me encanta, la descubrí cuando trabajé en Rokket Labs y desde ese momento la implemento en todos mis proyectos. Recomiendo revisar link.
