@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Text, View } from 'react-native'
+import { Icon } from 'react-native-elements'
 import { connect } from 'react-redux'
 
 import { getProducts } from '../../redux/actions/product.action'
@@ -23,6 +24,13 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
   return (
     <View style={styles.container}>
       <Text>ProductScreen</Text>
+      <Icon
+        raised
+        name="heartbeat"
+        type="font-awesome"
+        color="#f50"
+        onPress={() => console.log('hello')}
+      />
     </View>
   )
 }
