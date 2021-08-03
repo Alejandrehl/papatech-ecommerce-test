@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { closeMiniCart } from '../../redux/actions/cart.action'
 import { RootState } from '../../store'
 
+import styles from './styles'
+
 type Props = {
   readonly miniCartVisible: boolean
   readonly closeMiniCart: () => void
@@ -17,7 +19,8 @@ const MiniCartOverlay: React.FC<Props> = ({
   return (
     <Overlay
       isVisible={miniCartVisible}
-      onBackdropPress={() => closeMiniCart()}>
+      onBackdropPress={() => closeMiniCart()}
+      overlayStyle={styles.container}>
       <Text>Hello from Overlay!</Text>
     </Overlay>
   )
