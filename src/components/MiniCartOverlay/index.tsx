@@ -45,22 +45,39 @@ const MiniCartOverlay: React.FC<Props> = ({
           style={{ flex: 1, paddingBottom: '20%', marginVertical: '5%' }}>
           {cartProducts.map((cartProduct: CartProduct) => {
             return (
-              <View key={cartProduct.product.id} style={{ borderWidth: 1 }}>
-                <Text>{cartProduct.product.name}</Text>
-                <Text>{cartProduct.product.type}</Text>
-                <View style={{ flexDirection: 'row' }}>
+              <View
+                key={cartProduct.product.id}
+                style={{
+                  borderWidth: 1,
+                  padding: '4%',
+                  borderRadius: 30,
+                  marginBottom: 10,
+                }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+                  {cartProduct.product.name}
+                </Text>
+                <Text style={{ fontSize: 14, color: 'gray' }}>
+                  {cartProduct.product.type}
+                </Text>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                  }}>
                   <Text>
                     {cartProduct.product.price} x {cartProduct.quantity}
                   </Text>
-                  {/* <Text>
+                  <Text>
                     {cartProduct.product.price * cartProduct.quantity}
-                  </Text> */}
+                  </Text>
                 </View>
               </View>
             )
           })}
         </ScrollView>
-        <Text>TOTAL: {getTotal()}</Text>
+        <Text style={{ textAlign: 'right', paddingBottom: '5%' }}>
+          TOTAL: {getTotal()}
+        </Text>
         <Button
           title="Realizar compra"
           containerStyle={styles.buttonContainer}
