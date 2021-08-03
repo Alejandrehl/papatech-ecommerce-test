@@ -37,7 +37,7 @@ const ProductCard: React.FC<Props> = ({ product, addProductToCart }) => {
       <Button
         icon={<FontAwesomeIcon icon={faShoppingCart} size={20} color="white" />}
         iconRight
-        title="Add to cart"
+        title="Agregar"
         containerStyle={styles.buttonContainer}
         titleStyle={styles.buttonTitle}
         onPress={() => addProductToCart(product)}

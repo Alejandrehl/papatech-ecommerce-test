@@ -7,11 +7,18 @@ export default StyleSheet.create({
     borderRadius: 30,
   },
   content: {
+    flex: 1,
     padding: '5%',
   },
   titleText: {
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  buttonContainer: {
+    borderRadius: 50,
+  },
+  buttonTitle: {
+    paddingHorizontal: 15,
   },
 })

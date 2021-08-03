@@ -26,6 +26,29 @@ const initialState: InitialStateType = {
   miniCartVisible: false,
 }
 
+const getCartProducts = (
+  cartProducts: CartProduct[],
+  newProductToAdd: Product,
+) => {
+  let result = []
+
+  const duplicated = cartProducts.find(
+    (cartProduct: CartProduct) => cartProduct.product.id === newProductToAdd.id,
+  )
+
+  if (!duplicated)
+    result = [...cartProducts, { product: newProductToAdd, quantity: 1 }]
+  else
+    result = cartProducts.map((cartProduct: CartProduct) => {
+      if (cartProduct.product.id === newProductToAdd.id)
+        cartProduct.quantity += 1
+
+      return cartProduct
+    })
+
+  return result
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default (state = initialState, action: any) => {
   switch (action.type) {
@@ -37,20 +60,10 @@ export default (state = initialState, action: any) => {
     case ADD_PRODUCT_TO_CART:
       return {
         ...state,
-        products: state.products.map((cartProduct: CartProduct) => {
-          if (cartProduct.product.id === action.payload.id) {
-            cartProduct.quantity += 1
-
-            return cartProduct
-          }
-
-          const newProductToAdd: CartProduct = {
-            product: action.payload,
-            quantity: 1,
-          }
-
-          return newProductToAdd
-        }),
+        products:
+          state.products.length < 1
+            ? [...state.products, { product: action.payload, quantity: 1 }]
+            : getCartProducts(state.products, action.payload),
         badgeCount: state.badgeCount + 1,
       }
     case SHOW_MINI_CART:
