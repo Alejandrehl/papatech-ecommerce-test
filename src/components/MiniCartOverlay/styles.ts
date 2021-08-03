@@ -21,4 +21,13 @@ export default StyleSheet.create({
   buttonTitle: {
     paddingHorizontal: 15,
   },
+  totalText: {
+    textAlign: 'right',
+    paddingBottom: '5%',
+  },
+  scrollView: {
+    flex: 1,
+    paddingBottom: '20%',
+    marginVertical: '5%',
+  },
 })

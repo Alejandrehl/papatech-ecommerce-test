@@ -1,12 +1,13 @@
 import React from 'react'
 import { ScrollView, View } from 'react-native'
-import { Avatar, Button, Overlay, Text } from 'react-native-elements'
+import { Button, Overlay, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 import currency from 'currency.js'
 
 import { closeMiniCart } from '../../redux/actions/cart.action'
 import { CartProduct } from '../../redux/reducers/cart.reducer'
 import { RootState } from '../../store'
+import CartProductCard from '../CartProductCard'
 
 import styles from './styles'
 
@@ -42,62 +43,15 @@ const MiniCartOverlay: React.FC<Props> = ({
         <Text style={styles.titleText}>
           Tu carrito - {badgeCount} productos
         </Text>
-        <ScrollView
-          style={{ flex: 1, paddingBottom: '20%', marginVertical: '5%' }}>
-          {cartProducts.map((cartProduct: CartProduct) => {
-            return (
-              <View
-                key={cartProduct.product.id}
-                style={{
-                  borderWidth: 1,
-                  padding: '4%',
-                  borderRadius: 30,
-                  marginBottom: 10,
-                }}>
-                <View style={{ flexDirection: 'row' }}>
-                  <Avatar
-                    rounded
-                    source={{
-                      uri: cartProduct.product.image,
-                    }}
-                  />
-                  <View style={{ flex: 1 }}>
-                    <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
-                      {cartProduct.product.name}
-                    </Text>
-                    <Text style={{ fontSize: 14, color: 'gray' }}>
-                      {cartProduct.product.type}
-                    </Text>
-                    <View
-                      style={{
-                        flex: 1,
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                      }}>
-                      <Text>
-                        {currency(cartProduct.product.price, {
-                          symbol: '$',
-                          precision: 0,
-                        }).format()}{' '}
-                        x {cartProduct.quantity}
-                      </Text>
-                      <Text>
-                        {currency(
-                          cartProduct.product.price * cartProduct.quantity,
-                          {
-                            symbol: '$',
-                            precision: 0,
-                          },
-                        ).format()}
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            )
-          })}
+        <ScrollView style={styles.scrollView}>
+          {cartProducts.map((cartProduct: CartProduct) => (
+            <CartProductCard
+              key={cartProduct.product.id}
+              cartProduct={cartProduct}
+            />
+          ))}
         </ScrollView>
-        <Text style={{ textAlign: 'right', paddingBottom: '5%' }}>
+        <Text style={styles.totalText}>
           TOTAL:{' '}
           {currency(getTotal(), {
             symbol: '$',
