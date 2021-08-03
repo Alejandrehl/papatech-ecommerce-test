@@ -1,19 +1,22 @@
 import React from 'react'
 import { ActivityIndicator, View } from 'react-native'
 import { Button, Image, Text } from 'react-native-elements'
+import { connect } from 'react-redux'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import currency from 'currency.js'
 
+import { addProductToCart } from '../../redux/actions/cart.action'
 import { Product } from '../../redux/reducers/product.reducer'
 
 import styles from './styles'
 
 type Props = {
   readonly product: Product
+  readonly addProductToCart: (product: Product) => void
 }
 
-const ProductCard: React.FC<Props> = ({ product }) => {
+const ProductCard: React.FC<Props> = ({ product, addProductToCart }) => {
   const productPrice = currency(product.price, {
     symbol: '$',
     precision: 0,
@@ -37,9 +40,15 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         title="Add to cart"
         containerStyle={styles.buttonContainer}
         titleStyle={styles.buttonTitle}
+        onPress={() => addProductToCart(product)}
       />
     </View>
   )
 }
 
-export default ProductCard
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const mapDispatchToProps = (dispatch: any) => ({
+  addProductToCart: (product: Product) => dispatch(addProductToCart(product)),
+})
+
+export default connect(null, mapDispatchToProps)(ProductCard)
