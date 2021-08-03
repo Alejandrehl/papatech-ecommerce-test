@@ -7,7 +7,7 @@ Para temas prácticos de la prueba utilicé el endpoint [https://amiiboapi.com/a
 1. Clone repo: `git clone git@github.com:Alejandrehl/papatech-ecommerce-test.git`.
 2. Install dependencies: `yarn install` o solo `yarn` en la carpeta root del proyecto.
 3. Correr el proyecto en nuestro entorno local: `yarn run ios` o `yarn run android`.
-   - Este paso abrira una nueva termina corriendo "METRO". Lo que yo hago por cómodidad es abrir 2 terminales, una al lado de la otra, en una ejecuto `yarn start` para correr metro y otra `yarn run ios` o `yarn run android` para ejecutar los simuladores.
+   - Este paso abrira una nueva terminal corriendo "METRO". Lo que yo hago por cómodidad es abrir 2 terminales, una al lado de la otra, en una ejecuto `yarn start` para correr metro y otra `yarn run ios` o `yarn run android` para ejecutar los simuladores.
 
 ### Technical Questions
 
