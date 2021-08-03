@@ -21,5 +21,6 @@ Para temas prácticos de la prueba utilicé el endpoint [https://amiiboapi.com/a
 1. [Eslint Config Rokket Labs](https://github.com/rokket-labs/eslint-config-rokket-labs): Esta es una configuración de Eslint que me encanta, la descubrí cuando trabajé en Rokket Labs y desde ese momento la implemento en todos mis proyectos. Recomiendo revisar link.
 2. [React Native Elements](https://reactnativeelements.com/): UI Toolkit para maquetear los requerimientos más rápido.
 3. [Redux](https://redux.js.org/): Librería para manejar estados globales de la aplicación, en algunos casos y si la expertice del equipo lo permite creo que es mejor ocupar la mezcla entre useContext y useReducer ya que así nos ahorrariamos utilizar una librería externa y que cumple la misma función.
+   3.1 [React Redux](https://react-redux.js.org/)
 4. [Redux Thunk](https://github.com/reduxjs/redux-thunk): Middleware de Redux, la utilicé en este proyecto porque me parece más fácil de implementar que Redux Saga.
 5. [Amiibo API](https://www.amiiboapi.com/): API utilizada para mostrar los productos en la app.
