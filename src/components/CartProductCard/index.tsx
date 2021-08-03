@@ -1,6 +1,8 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 import { Avatar } from 'react-native-elements'
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import currency from 'currency.js'
 
 import { CartProduct } from '../../redux/reducers/cart.reducer'
@@ -22,8 +24,23 @@ const CartProductCard: React.FC<Props> = ({ cartProduct }) => {
           }}
         />
         <View style={styles.infoView}>
-          <Text style={styles.nameText}>{cartProduct.product.name}</Text>
-          <Text style={styles.typeText}>{cartProduct.product.type}</Text>
+          <View style={styles.topViewContainer}>
+            <View>
+              <Text style={styles.nameText}>
+                {cartProduct.product.name.substring(0, 10)}
+              </Text>
+              <Text style={styles.typeText}>{cartProduct.product.type}</Text>
+            </View>
+            <View style={styles.actionsContainer}>
+              <TouchableOpacity>
+                <FontAwesomeIcon icon={faMinus} size={20} color="red" />
+              </TouchableOpacity>
+              <Text style={styles.quantityText}>{cartProduct.quantity}</Text>
+              <TouchableOpacity>
+                <FontAwesomeIcon icon={faPlus} size={20} color="green" />
+              </TouchableOpacity>
+            </View>
+          </View>
           <View style={styles.amountView}>
             <Text>
               {currency(cartProduct.product.price, {

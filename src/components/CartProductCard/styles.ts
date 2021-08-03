@@ -28,4 +28,17 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  topViewContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  actionsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  quantityText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingHorizontal: '5%',
+  },
 })
