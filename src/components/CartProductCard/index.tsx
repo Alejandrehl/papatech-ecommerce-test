@@ -6,7 +6,10 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import currency from 'currency.js'
 
-import { addProductToCart } from '../../redux/actions/cart.action'
+import {
+  addProductToCart,
+  removeProductFromCart,
+} from '../../redux/actions/cart.action'
 import { CartProduct } from '../../redux/reducers/cart.reducer'
 import { Product } from '../../redux/reducers/product.reducer'
 
@@ -15,11 +18,13 @@ import styles from './styles'
 type Props = {
   readonly cartProduct: CartProduct
   readonly addProductToCart: (product: Product) => void
+  readonly removeProductFromCart: (cartProduct: CartProduct) => void
 }
 
 const CartProductCard: React.FC<Props> = ({
   cartProduct,
   addProductToCart,
+  removeProductFromCart,
 }) => {
   return (
     <View key={cartProduct.product.id} style={styles.container}>
@@ -39,7 +44,8 @@ const CartProductCard: React.FC<Props> = ({
               <Text style={styles.typeText}>{cartProduct.product.type}</Text>
             </View>
             <View style={styles.actionsContainer}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => removeProductFromCart(cartProduct)}>
                 <FontAwesomeIcon icon={faMinus} size={20} color="red" />
               </TouchableOpacity>
               <Text style={styles.quantityText}>{cartProduct.quantity}</Text>
@@ -73,6 +79,8 @@ const CartProductCard: React.FC<Props> = ({
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapDispatchToProps = (dispatch: any) => ({
   addProductToCart: (product: Product) => dispatch(addProductToCart(product)),
+  removeProductFromCart: (cartProduct: CartProduct) =>
+    dispatch(removeProductFromCart(cartProduct)),
 })
 
 export default connect(null, mapDispatchToProps)(CartProductCard)

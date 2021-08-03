@@ -1,6 +1,7 @@
 import {
   ADD_PRODUCT_TO_CART,
   CLOSE_MINI_CART,
+  REMOVE_PRODUCT_FROM_CART,
   SET_LOADING,
   SHOW_MINI_CART,
 } from '../actions/types'
@@ -49,6 +50,20 @@ const getCartProducts = (
   return result
 }
 
+const removeProductFromCart = (
+  cartProducts: CartProduct[],
+  productToRemove: CartProduct,
+) => {
+  const result = cartProducts.map((cartProduct: CartProduct) => {
+    if (cartProduct.product.id === productToRemove.product.id)
+      cartProduct.quantity -= 1
+
+    return cartProduct
+  })
+
+  return result
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default (state = initialState, action: any) => {
   switch (action.type) {
@@ -65,6 +80,11 @@ export default (state = initialState, action: any) => {
             ? [...state.products, { product: action.payload, quantity: 1 }]
             : getCartProducts(state.products, action.payload),
         badgeCount: state.badgeCount + 1,
+      }
+    case REMOVE_PRODUCT_FROM_CART:
+      return {
+        ...state,
+        products: removeProductFromCart(state.products, action.payload),
       }
     case SHOW_MINI_CART:
       return {
