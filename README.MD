@@ -32,3 +32,4 @@ Para temas prácticos de la prueba utilicé el endpoint [https://amiiboapi.com/a
 4. [Redux Thunk](https://github.com/reduxjs/redux-thunk): Middleware de Redux, la utilicé en este proyecto porque me parece más fácil de implementar que Redux Saga.
 5. [Amiibo API](https://www.amiiboapi.com/): API utilizada para mostrar los productos en la app.
 6. [Axios](https://github.com/axios/axios): Librería utilizada como HTTP Client en reemplazo de FETCH.
+7. [React Navigation](https://reactnavigation.org/): Librería utilizada para navegar entre las pantallas de la aplicación. Yo tenia conocimiento hasta la versión 5 de este package pero en este desafió utilicé la 6 ya que es la más nueva.
