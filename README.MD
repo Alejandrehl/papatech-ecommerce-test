@@ -1,5 +1,12 @@
 # Papa Tech Ecommerce Test :pizza::fire:
 
+Estimados Devs/TechLeads/CTO/RevisoresDePruebas espero que les guste el desarrollo de mi prueba, creo haber cumplido con todos los requisitos excepto por 2 cosas:
+
+1. Validación de números negativos en los productos del mini cart.
+2. Refresh de número de cantidad del producto agregado al carro. Se muestra pero para que se actualicé en el mini cart hay que cerrar y abrir de nuevo.
+
+Además de lo mencionado anteriormente agregué unas cosas extra que a mi parecer deberian estar como por ejemplo cuando entras al mini cart y no tienes productos te muestra un mensaje y no puedes ir al checkout.
+
 ### How to run app?
 
 1. Clonar repo: `git clone git@github.com:Alejandrehl/papatech-ecommerce-test.git`.
@@ -25,6 +32,7 @@
 ### Pending Tasks
 
 1. Al momento de sumar o restar elementos en el overlay del carrito no se refresca el valor de la cantidad.
+2. Validación números negativos en cantidad de un producto.
 
 ### Libraries & Dependencies
 
