@@ -3,6 +3,7 @@ import { FlatList, View } from 'react-native'
 import { connect } from 'react-redux'
 
 import Loading from '../../components/Loading/index'
+import MiniCartOverlay from '../../components/MiniCartOverlay'
 import ProductCard from '../../components/ProductCard'
 import { getProducts } from '../../redux/actions/product.action'
 import { Product } from '../../redux/reducers/product.reducer'
@@ -39,6 +40,7 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
           renderItem={({ item }) => <ProductCard product={item} />}
         />
       )}
+      <MiniCartOverlay isVisible />
     </View>
   )
 }
