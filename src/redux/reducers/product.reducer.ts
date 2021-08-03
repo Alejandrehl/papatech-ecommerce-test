@@ -18,6 +18,7 @@ export type Product = {
   readonly tail: string
   readonly type: string
   price: number
+  id: string
 }
 
 type InitialStateType = {

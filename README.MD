@@ -34,3 +34,4 @@
 7. [React Navigation](https://reactnavigation.org/): Librería utilizada para navegar entre las pantallas de la aplicación. Yo tenia conocimiento hasta la versión 5 de este package pero en este desafió utilicé la 6 ya que es la más nueva.
 8. [React Native Font Awesome](https://www.npmjs.com/package/@fortawesome/react-native-fontawesome): Librería para iconos Font Awesome.
 9. [CurrencyJS](https://currency.js.org/): Librería utilizada para formatear precio de los productos.
+10. [UUID](https://yarnpkg.com/package/uuid): Librería utilizada para generar los IDS de los productos.

@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid'
+
 import { AppDispatch } from '../../store'
 import api from '../../utils/api'
 import { Product } from '../reducers/product.reducer'
@@ -9,8 +11,10 @@ export const getProducts = () => async (dispatch: AppDispatch) => {
     dispatch({ type: SET_LOADING })
 
     const res = await api.get('')
+
     const products = res.data.amiibo
-    const payload = products.map((product: Product) => {
+
+    const payload: Product[] = products.map((product: Product) => {
       const min = Math.ceil(12990)
       const max = Math.floor(59990)
 
@@ -20,6 +24,7 @@ export const getProducts = () => async (dispatch: AppDispatch) => {
       return {
         ...product,
         price,
+        id: uuidv4(),
       }
     })
 
