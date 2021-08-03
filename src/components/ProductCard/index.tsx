@@ -7,26 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import currency from 'currency.js'
 
 import { addProductToCart } from '../../redux/actions/cart.action'
-import { CartProduct } from '../../redux/reducers/cart.reducer'
 import { Product } from '../../redux/reducers/product.reducer'
-import { RootState } from '../../store'
 
 import styles from './styles'
 
 type Props = {
   readonly product: Product
-  readonly cartProducts: CartProduct[]
-  readonly addProductToCart: (
-    product: Product,
-    cartProducts: CartProduct[],
-  ) => void
+  readonly addProductToCart: (product: Product) => void
 }
 
-const ProductCard: React.FC<Props> = ({
-  product,
-  addProductToCart,
-  cartProducts,
-}) => {
+const ProductCard: React.FC<Props> = ({ product, addProductToCart }) => {
   const productPrice = currency(product.price, {
     symbol: '$',
     precision: 0,
@@ -50,20 +40,15 @@ const ProductCard: React.FC<Props> = ({
         title="Add to cart"
         containerStyle={styles.buttonContainer}
         titleStyle={styles.buttonTitle}
-        onPress={() => addProductToCart(product, cartProducts)}
+        onPress={() => addProductToCart(product)}
       />
     </View>
   )
 }
 
-const mapStateToProps = (state: RootState) => ({
-  cartProducts: state.cart.products,
-})
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const mapDispatchToProps = (dispatch: any) => ({
-  addProductToCart: (product: Product, cartProducts: CartProduct[]) =>
-    dispatch(addProductToCart(product, cartProducts)),
+  addProductToCart: (product: Product) => dispatch(addProductToCart(product)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductCard)
+export default connect(null, mapDispatchToProps)(ProductCard)

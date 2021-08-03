@@ -30,7 +30,6 @@ export const getProducts = () => async (dispatch: AppDispatch) => {
 
     dispatch({ type: GET_PRODUCTS, payload })
   } catch (err) {
-    console.log('Get products error: ', err.message)
     dispatch({ type: SET_ERROR, payload: err.message })
   }
 }

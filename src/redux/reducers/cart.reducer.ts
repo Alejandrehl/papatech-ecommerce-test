@@ -28,6 +28,11 @@ export default (state = initialState, action: any) => {
         loading: true,
       }
     case ADD_PRODUCT_TO_CART:
+      return {
+        ...state,
+        products: [...state.products, action.payload],
+        badgeCount: state.badgeCount + 1,
+      }
     default:
       return state
   }

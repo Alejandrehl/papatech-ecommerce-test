@@ -1,16 +1,11 @@
 import { AppDispatch } from '../../store'
-import { CartProduct } from '../reducers/cart.reducer'
 import { Product } from '../reducers/product.reducer'
 
 import { ADD_PRODUCT_TO_CART, CLOSE_MINI_CART, SHOW_MINI_CART } from './types'
 
 export const addProductToCart =
-  (product: Product, cartProducts: CartProduct[]) =>
-  (dispatch: AppDispatch) => {
-    console.log('ADD PRODUCT TO CART', product)
-    console.log('CURRENT PRODUCTS IN CART', cartProducts)
-
-    dispatch({ type: ADD_PRODUCT_TO_CART, payload: null })
+  (product: Product) => (dispatch: AppDispatch) => {
+    dispatch({ type: ADD_PRODUCT_TO_CART, payload: product })
   }
 
 export const showMiniCart = () => (dispatch: AppDispatch) =>
