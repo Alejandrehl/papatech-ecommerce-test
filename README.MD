@@ -1,8 +1,15 @@
-# Papa Tech Ecommerce Test
+# Papa Tech Ecommerce Test :pizza::fire:
 
 Para temas prácticos de la prueba utilicé el endpoint [https://amiiboapi.com/api/amiibo/?character=Mario](https://amiiboapi.com/api/amiibo/?character=Mario). Mi personaje favorito es Cloud Strife pero solo me aparecieron 2 registros :cry:.
 
-### Technical Questions 
+### How to run app?
+
+1. Clone repo: `git clone git@github.com:Alejandrehl/papatech-ecommerce-test.git`.
+2. Install dependencies: `yarn install` o solo `yarn` en la carpeta root del proyecto.
+3. Correr el proyecto en nuestro entorno local: `yarn run ios` o `yarn run android`.
+   - Este paso abrira una nueva terminal corriendo "METRO". Lo que yo hago por cómodidad es abrir 2 terminales, una al lado de la otra, en una ejecuto `yarn start` para correr metro y otra `yarn run ios` o `yarn run android` para ejecutar los simuladores.
+
+### Technical Questions
 
 1. ¿Qué es React, React Native y Redux?
 2. ¿Cuál es tu experiencia con React Native?
@@ -16,11 +23,13 @@ Para temas prácticos de la prueba utilicé el endpoint [https://amiiboapi.com/a
 10. ¿Has hecho algún deploy de app a las Stores (Google Play / App Store / AppGallery)?¿Cómo lo has realizado?¿Has tenido algún problema?
 11. Menciona algunas buenas prácticas que hayas utilizado en el desarrollo de apps.
 
-
 ### Libraries & Dependencies
 
 1. [Eslint Config Rokket Labs](https://github.com/rokket-labs/eslint-config-rokket-labs): Esta es una configuración de Eslint que me encanta, la descubrí cuando trabajé en Rokket Labs y desde ese momento la implemento en todos mis proyectos. Recomiendo revisar link.
-2. [React Native Elements](https://reactnativeelements.com/): UI Toolkit para maquetear los requerimientos más rápido. 
-3. [Redux](https://redux.js.org/): Librería para manejar estados globales de la aplicación, en algunos casos y si la expertice del equipo lo permite creo que es mejor ocupar la mezcla entre useContext y useReducer ya que así nos ahorrariamos utilizar una librería externa y que cumple la misma función. 
-4. [Redux Thunk](https://github.com/reduxjs/redux-thunk): Middleware de Redux, la utilicé en este proyecto porque me parece más fácil de implementar que Redux Saga. 
+2. [React Native Elements](https://reactnativeelements.com/): UI Toolkit para maquetear los requerimientos más rápido.
+3. [Redux](https://redux.js.org/): Librería para manejar estados globales de la aplicación, en algunos casos y si la expertice del equipo lo permite creo que es mejor ocupar la mezcla entre useContext y useReducer ya que así nos ahorrariamos utilizar una librería externa y que cumple la misma función.
+   3.1 [React Redux](https://react-redux.js.org/)
+4. [Redux Thunk](https://github.com/reduxjs/redux-thunk): Middleware de Redux, la utilicé en este proyecto porque me parece más fácil de implementar que Redux Saga.
 5. [Amiibo API](https://www.amiiboapi.com/): API utilizada para mostrar los productos en la app.
+6. [Axios](https://github.com/axios/axios): Librería utilizada como HTTP Client en reemplazo de FETCH.
+7. [React Navigation](https://reactnavigation.org/): Librería utilizada para navegar entre las pantallas de la aplicación. Yo tenia conocimiento hasta la versión 5 de este package pero en este desafió utilicé la 6 ya que es la más nueva.
