@@ -43,14 +43,20 @@ const MiniCartOverlay: React.FC<Props> = ({
         <Text style={styles.titleText}>
           Tu carrito - {badgeCount} productos
         </Text>
-        <ScrollView style={styles.scrollView}>
-          {cartProducts.map((cartProduct: CartProduct) => (
-            <CartProductCard
-              key={cartProduct.product.id}
-              cartProduct={cartProduct}
-            />
-          ))}
-        </ScrollView>
+        {cartProducts.length < 1 ? (
+          <View style={styles.emptyCartContainer}>
+            <Text style={styles.emptyCartText}>Carrito vacio</Text>
+          </View>
+        ) : (
+          <ScrollView style={styles.scrollView}>
+            {cartProducts.map((cartProduct: CartProduct) => (
+              <CartProductCard
+                key={cartProduct.product.id}
+                cartProduct={cartProduct}
+              />
+            ))}
+          </ScrollView>
+        )}
         <Text style={styles.totalText}>
           TOTAL:{' '}
           {currency(getTotal(), {
@@ -63,6 +69,7 @@ const MiniCartOverlay: React.FC<Props> = ({
           containerStyle={styles.buttonContainer}
           titleStyle={styles.buttonTitle}
           onPress={() => console.log('Ir a checkout')}
+          disabled={cartProducts.length < 1}
         />
       </View>
     </Overlay>

@@ -1,19 +1,26 @@
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import { Avatar } from 'react-native-elements'
+import { connect } from 'react-redux'
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import currency from 'currency.js'
 
+import { addProductToCart } from '../../redux/actions/cart.action'
 import { CartProduct } from '../../redux/reducers/cart.reducer'
+import { Product } from '../../redux/reducers/product.reducer'
 
 import styles from './styles'
 
 type Props = {
   readonly cartProduct: CartProduct
+  readonly addProductToCart: (product: Product) => void
 }
 
-const CartProductCard: React.FC<Props> = ({ cartProduct }) => {
+const CartProductCard: React.FC<Props> = ({
+  cartProduct,
+  addProductToCart,
+}) => {
   return (
     <View key={cartProduct.product.id} style={styles.container}>
       <View style={styles.content}>
@@ -36,7 +43,8 @@ const CartProductCard: React.FC<Props> = ({ cartProduct }) => {
                 <FontAwesomeIcon icon={faMinus} size={20} color="red" />
               </TouchableOpacity>
               <Text style={styles.quantityText}>{cartProduct.quantity}</Text>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => addProductToCart(cartProduct.product)}>
                 <FontAwesomeIcon icon={faPlus} size={20} color="green" />
               </TouchableOpacity>
             </View>
@@ -62,4 +70,9 @@ const CartProductCard: React.FC<Props> = ({ cartProduct }) => {
   )
 }
 
-export default CartProductCard
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const mapDispatchToProps = (dispatch: any) => ({
+  addProductToCart: (product: Product) => dispatch(addProductToCart(product)),
+})
+
+export default connect(null, mapDispatchToProps)(CartProductCard)

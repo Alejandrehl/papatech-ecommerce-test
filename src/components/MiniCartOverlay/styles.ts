@@ -30,4 +30,12 @@ export default StyleSheet.create({
     paddingBottom: '20%',
     marginVertical: '5%',
   },
+  emptyCartContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyCartText: {
+    fontSize: 18,
+  },
 })
