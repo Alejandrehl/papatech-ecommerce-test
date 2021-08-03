@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import { Text, View } from 'react-native'
 import { connect } from 'react-redux'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 import { getProducts } from '../../redux/actions/product.action'
 import { Product } from '../../redux/reducers/product.reducer'
@@ -25,7 +23,6 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
   return (
     <View style={styles.container}>
       <Text>ProductScreen</Text>
-      <FontAwesomeIcon icon={faCoffee} />
     </View>
   )
 }
