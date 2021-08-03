@@ -9,6 +9,7 @@ export const setLoading = () => {
 
 export const getProducts = () => async (dispatch: AppDispatch) => {
   try {
+    console.log('GET PRODUCTS')
     setLoading()
 
     const res = await api.get('')
