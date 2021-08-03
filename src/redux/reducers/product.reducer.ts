@@ -1,7 +1,22 @@
 import { GET_PRODUCTS, SET_LOADING } from '../actions/types'
 
+export type Release = {
+  readonly au: string | null
+  readonly eu: string | null
+  readonly jp: string | null
+  readonly na: string | null
+}
+
 export type Product = {
-  name: string
+  readonly amiiboSeries: string
+  readonly character: string
+  readonly gameSeries: string
+  readonly head: string
+  readonly image: string
+  readonly name: string
+  readonly release: Release
+  readonly tail: string
+  readonly type: string
 }
 
 type InitialStateType = {

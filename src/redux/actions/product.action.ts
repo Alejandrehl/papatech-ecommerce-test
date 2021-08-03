@@ -9,14 +9,11 @@ export const setLoading = () => {
 
 export const getProducts = () => async (dispatch: AppDispatch) => {
   try {
-    console.log('GET PRODUCTS')
     setLoading()
 
     const res = await api.get('')
 
-    console.log('AQUI', res)
-
-    dispatch({ type: GET_PRODUCTS })
+    dispatch({ type: GET_PRODUCTS, payload: res.data.amiibo })
   } catch (error) {
     dispatch({ type: SET_ERROR, payload: error.message })
   }
