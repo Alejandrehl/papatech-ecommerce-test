@@ -2,19 +2,21 @@ import { ADD_PRODUCT_TO_CART, SET_LOADING } from '../actions/types'
 
 import { Product } from './product.reducer'
 
-type CartProduct = {
+export type CartProduct = {
   readonly product: Product
   quantity: number
 }
 
 type InitialStateType = {
   loading: boolean
-  products: CartProduct | null
+  products: CartProduct[]
+  badgeCount: number
 }
 
 const initialState: InitialStateType = {
   loading: false,
-  products: null,
+  products: [],
+  badgeCount: 0,
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
