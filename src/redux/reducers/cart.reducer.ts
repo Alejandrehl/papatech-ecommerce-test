@@ -1,4 +1,9 @@
-import { ADD_PRODUCT_TO_CART, SET_LOADING } from '../actions/types'
+import {
+  ADD_PRODUCT_TO_CART,
+  CLOSE_MINI_CART,
+  SET_LOADING,
+  SHOW_MINI_CART,
+} from '../actions/types'
 
 import { Product } from './product.reducer'
 
@@ -11,12 +16,14 @@ type InitialStateType = {
   loading: boolean
   products: CartProduct[]
   badgeCount: number
+  miniCartVisible: boolean
 }
 
 const initialState: InitialStateType = {
   loading: false,
   products: [],
   badgeCount: 0,
+  miniCartVisible: false,
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -45,6 +52,16 @@ export default (state = initialState, action: any) => {
           return newProductToAdd
         }),
         badgeCount: state.badgeCount + 1,
+      }
+    case SHOW_MINI_CART:
+      return {
+        ...state,
+        miniCartVisible: true,
+      }
+    case CLOSE_MINI_CART:
+      return {
+        ...state,
+        miniCartVisible: false,
       }
     default:
       return state

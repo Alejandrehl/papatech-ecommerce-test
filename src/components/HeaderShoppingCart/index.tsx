@@ -25,6 +25,7 @@ const HeaderShoppingCart: React.FC<Props> = ({ badgeCount, showMiniCart }) => {
         status="warning"
         containerStyle={styles.badge}
         value={badgeCount}
+        onPress={() => showMiniCart()}
       />
     </TouchableOpacity>
   )
