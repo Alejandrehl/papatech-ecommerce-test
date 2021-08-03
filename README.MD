@@ -21,3 +21,4 @@
 2. [React Native Elements](https://reactnativeelements.com/): UI Toolkit para maquetear los requerimientos más rápido. 
 3. [Redux](https://redux.js.org/): Librería para manejar estados globales de la aplicación, en algunos casos y si la expertice del equipo lo permite creo que es mejor ocupar la mezcla entre useContext y useReducer ya que así nos ahorrariamos utilizar una librería externa y que cumple la misma función. 
 4. [Redux Thunk](https://github.com/reduxjs/redux-thunk): Middleware de Redux, la utilicé en este proyecto porque me parece más fácil de implementar que Redux Saga. 
+5. [Amiibo API](https://www.amiiboapi.com/): API utilizada para mostrar los productos en la app.
