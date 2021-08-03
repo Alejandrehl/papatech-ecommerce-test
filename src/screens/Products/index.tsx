@@ -33,7 +33,7 @@ const ProductScreen: React.FC<Props> = ({ loading, products, getProducts }) => {
         <FlatList
           columnWrapperStyle={styles.columWrapper}
           data={products}
-          keyExtractor={item => `${item.name}-${item.price}`}
+          keyExtractor={item => item.id}
           horizontal={false}
           numColumns={2}
           renderItem={({ item }) => <ProductCard product={item} />}
