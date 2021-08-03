@@ -3,12 +3,12 @@ import { Text, View } from 'react-native'
 
 import styles from './styles'
 
-const CartScreen: React.FC = () => {
+const CheckoutScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>CartScreen</Text>
+      <Text>CheckoutScreen</Text>
     </View>
   )
 }
 
-export default CartScreen
+export default CheckoutScreen

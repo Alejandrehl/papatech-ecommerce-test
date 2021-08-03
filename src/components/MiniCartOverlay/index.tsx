@@ -2,6 +2,7 @@ import React from 'react'
 import { ScrollView, View } from 'react-native'
 import { Button, Overlay, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
+import { useNavigation } from '@react-navigation/native'
 import currency from 'currency.js'
 
 import { closeMiniCart } from '../../redux/actions/cart.action'
@@ -24,6 +25,8 @@ const MiniCartOverlay: React.FC<Props> = ({
   cartProducts,
   closeMiniCart,
 }) => {
+  const navigation = useNavigation()
+
   const getTotal = () => {
     let total = 0
 
@@ -32,6 +35,11 @@ const MiniCartOverlay: React.FC<Props> = ({
     })
 
     return total
+  }
+
+  const goToCheckout = () => {
+    closeMiniCart()
+    navigation.navigate('checkout')
   }
 
   return (
@@ -68,7 +76,7 @@ const MiniCartOverlay: React.FC<Props> = ({
           title="Realizar compra"
           containerStyle={styles.buttonContainer}
           titleStyle={styles.buttonTitle}
-          onPress={() => console.log('Ir a checkout')}
+          onPress={() => goToCheckout()}
           disabled={cartProducts.length < 1}
         />
       </View>

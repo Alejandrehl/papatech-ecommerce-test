@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import HeaderShoppingCart from '../components/HeaderShoppingCart'
-import CartScreen from '../screens/Cart/index'
+import CheckoutScreen from '../screens/Checkout/index'
 import ProductScreen from '../screens/Products/index'
 
 const Stack = createNativeStackNavigator()
@@ -21,9 +21,9 @@ const AppNavigator: React.FC = () => {
           }}
         />
         <Stack.Screen
-          name="cart"
-          component={CartScreen}
-          options={{ title: 'Carrito de compras' }}
+          name="checkout"
+          component={CheckoutScreen}
+          options={{ title: 'Checkout' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
