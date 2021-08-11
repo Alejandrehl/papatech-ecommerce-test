@@ -7,6 +7,7 @@ import {
   SHOW_MINI_CART,
 } from '../actions/types'
 
+import { CartProduct } from './cart.reducer'
 import { Product } from './product.reducer'
 
 export type CartProduct = {
@@ -59,10 +60,16 @@ const removeProductFromCart = (
     if (cartProduct.product.id === productToRemove.product.id)
       cartProduct.quantity -= 1
 
+    if (cartProduct.quantity < 1) return null
+
     return cartProduct
   })
 
-  return result
+  const finalResult = result.filter(
+    (cartProduct: CartProduct | null) => cartProduct !== null,
+  )
+
+  return finalResult
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -86,7 +93,7 @@ export default (state = initialState, action: any) => {
       return {
         ...state,
         products: removeProductFromCart(state.products, action.payload),
-        badgeCount: state.badgeCount - 1
+        badgeCount: state.badgeCount - 1,
       }
     case PAY_SHOPPING_CART:
       return {
