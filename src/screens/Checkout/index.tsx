@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Alert, FlatList, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
@@ -24,6 +24,10 @@ const CheckoutScreen: React.FC<Props> = ({
 }) => {
   const navigation = useNavigation()
 
+  useEffect(() => {
+    if (badgeCount < 1) navigation.goBack()
+  }, [badgeCount])
+
   const handlePayShoppingCart = () => {
     Alert.alert(
       '¡Compra exitosa!',
@@ -42,6 +46,7 @@ const CheckoutScreen: React.FC<Props> = ({
         containerStyle={styles.buttonContainer}
         titleStyle={styles.buttonTitle}
         onPress={() => handlePayShoppingCart()}
+        disabled={cartProducts.length < 1}
       />
       <FlatList
         data={cartProducts}
