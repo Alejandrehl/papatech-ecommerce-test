@@ -86,6 +86,7 @@ export default (state = initialState, action: any) => {
       return {
         ...state,
         products: removeProductFromCart(state.products, action.payload),
+        badgeCount: state.badgeCount - 1
       }
     case PAY_SHOPPING_CART:
       return {
