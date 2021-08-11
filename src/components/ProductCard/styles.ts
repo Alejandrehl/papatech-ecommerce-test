@@ -1,17 +1,24 @@
 import { StyleSheet } from 'react-native'
 
-const BORDER_COLOR = 'silver'
+const BORDER_COLOR = 'black'
 const TYPE_COLOR = 'gray'
 
 export default StyleSheet.create({
   container: {
     flex: 1 / 2,
     alignItems: 'center',
-    borderRadius: 30,
-    borderWidth: 1,
-    borderColor: BORDER_COLOR,
     marginHorizontal: 5,
     padding: 10,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: BORDER_COLOR,
+    shadowColor: BORDER_COLOR,
+    shadowOffset: {
+      width: 5,
+      height: 10
+    },
+    shadowOpacity: 20,
+    shadowRadius: 10,
   },
   image: {
     width: 80,
