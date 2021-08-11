@@ -3,11 +3,13 @@ import { Alert, FlatList, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
+import currency from 'currency.js'
 
 import CartProductCard from '../../components/CartProductCard'
 import { payShoppingCart } from '../../redux/actions/cart.action'
 import { CartProduct } from '../../redux/reducers/cart.reducer'
 import { RootState } from '../../store'
+import getTotalCart from '../../utils/getTotalCart'
 
 import styles from './styles'
 
@@ -41,6 +43,13 @@ const CheckoutScreen: React.FC<Props> = ({
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Tu carrito - {badgeCount} productos</Text>
+      <Text style={styles.totalText}>
+        TOTAL:{' '}
+        {currency(getTotalCart(cartProducts), {
+          symbol: '$',
+          precision: 0,
+        }).format()}
+      </Text>
       <Button
         title="Pagar"
         containerStyle={styles.buttonContainer}

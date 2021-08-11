@@ -8,6 +8,7 @@ import currency from 'currency.js'
 import { closeMiniCart } from '../../redux/actions/cart.action'
 import { CartProduct } from '../../redux/reducers/cart.reducer'
 import { RootState } from '../../store'
+import getTotalCart from '../../utils/getTotalCart'
 import CartProductCard from '../CartProductCard'
 
 import styles from './styles'
@@ -26,16 +27,6 @@ const MiniCartOverlay: React.FC<Props> = ({
   closeMiniCart,
 }) => {
   const navigation = useNavigation()
-
-  const getTotal = () => {
-    let total = 0
-
-    cartProducts.forEach((cartProduct: CartProduct) => {
-      total += cartProduct.product.price * cartProduct.quantity
-    })
-
-    return total
-  }
 
   const goToCheckout = () => {
     closeMiniCart()
@@ -67,7 +58,7 @@ const MiniCartOverlay: React.FC<Props> = ({
         )}
         <Text style={styles.totalText}>
           TOTAL:{' '}
-          {currency(getTotal(), {
+          {currency(getTotalCart(cartProducts), {
             symbol: '$',
             precision: 0,
           }).format()}

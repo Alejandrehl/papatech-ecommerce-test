@@ -18,4 +18,10 @@ export default StyleSheet.create({
   buttonTitle: {
     paddingHorizontal: 15,
   },
+  totalText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingVertical: '5%',
+  },
 })
