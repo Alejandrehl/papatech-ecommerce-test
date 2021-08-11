@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-const BORDER_COLOR = 'black'
+const BORDER_COLOR = 'gray'
 const TYPE_COLOR = 'gray'
 
 export default StyleSheet.create({
@@ -15,10 +15,10 @@ export default StyleSheet.create({
     shadowColor: BORDER_COLOR,
     shadowOffset: {
       width: 5,
-      height: 10
+      height: 10,
     },
     shadowOpacity: 20,
-    shadowRadius: 10,
+    shadowRadius: 5,
   },
   image: {
     width: 80,

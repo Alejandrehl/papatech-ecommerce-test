@@ -7,7 +7,6 @@ import {
   SHOW_MINI_CART,
 } from '../actions/types'
 
-import { CartProduct } from './cart.reducer'
 import { Product } from './product.reducer'
 
 export type CartProduct = {
