@@ -34,10 +34,8 @@ const CheckoutScreen: React.FC<Props> = ({
     Alert.alert(
       '¡Compra exitosa!',
       'Enviamos la boleta a tu correo electrónico',
-      [{ text: 'OK', onPress: () => navigation.goBack() }],
+      [{ text: 'OK', onPress: () => payShoppingCart() }],
     )
-
-    payShoppingCart()
   }
 
   return (
