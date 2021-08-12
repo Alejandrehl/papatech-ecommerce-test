@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import { Avatar } from 'react-native-elements'
 import { connect } from 'react-redux'
@@ -17,6 +17,7 @@ import styles from './styles'
 
 type Props = {
   readonly cartProduct: CartProduct
+
   readonly addProductToCart: (product: Product) => void
   readonly removeProductFromCart: (cartProduct: CartProduct) => void
 }
@@ -26,6 +27,18 @@ const CartProductCard: React.FC<Props> = ({
   addProductToCart,
   removeProductFromCart,
 }) => {
+  const [productCount, setProductCount] = useState<number>(0)
+
+  const handleAddProductToCart = (cartProduct: CartProduct) => {
+    setProductCount(productCount + 1)
+    addProductToCart(cartProduct.product)
+  }
+
+  const handleRemoveProductFromCart = (cartProduct: CartProduct) => {
+    setProductCount(productCount - 1)
+    removeProductFromCart(cartProduct)
+  }
+
   return (
     <View key={cartProduct.product.id} style={styles.container}>
       <View style={styles.content}>
@@ -45,12 +58,12 @@ const CartProductCard: React.FC<Props> = ({
             </View>
             <View style={styles.actionsContainer}>
               <TouchableOpacity
-                onPress={() => removeProductFromCart(cartProduct)}>
+                onPress={() => handleRemoveProductFromCart(cartProduct)}>
                 <FontAwesomeIcon icon={faMinus} size={20} color="red" />
               </TouchableOpacity>
               <Text style={styles.quantityText}>{cartProduct.quantity}</Text>
               <TouchableOpacity
-                onPress={() => addProductToCart(cartProduct.product)}>
+                onPress={() => handleAddProductToCart(cartProduct)}>
                 <FontAwesomeIcon icon={faPlus} size={20} color="green" />
               </TouchableOpacity>
             </View>

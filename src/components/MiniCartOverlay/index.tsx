@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, View } from 'react-native'
+import { FlatList, View } from 'react-native'
 import { Button, Overlay, Text } from 'react-native-elements'
 import { connect } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
@@ -47,14 +47,13 @@ const MiniCartOverlay: React.FC<Props> = ({
             <Text style={styles.emptyCartText}>Carrito vacio</Text>
           </View>
         ) : (
-          <ScrollView style={styles.scrollView}>
-            {cartProducts.map((cartProduct: CartProduct) => (
-              <CartProductCard
-                key={cartProduct.product.id}
-                cartProduct={cartProduct}
-              />
-            ))}
-          </ScrollView>
+          <FlatList
+            data={cartProducts}
+            keyExtractor={item => item.product.id}
+            horizontal={false}
+            numColumns={1}
+            renderItem={({ item }) => <CartProductCard cartProduct={item} />}
+          />
         )}
         <Text style={styles.totalText}>
           TOTAL:{' '}
