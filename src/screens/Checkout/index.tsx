@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Alert, FlatList, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
-import { useNavigation } from '@react-navigation/native'
 import currency from 'currency.js'
 
 import CartProductCard from '../../components/CartProductCard'
@@ -24,12 +23,6 @@ const CheckoutScreen: React.FC<Props> = ({
   cartProducts,
   payShoppingCart,
 }) => {
-  const navigation = useNavigation()
-
-  useEffect(() => {
-    if (badgeCount < 1) navigation.goBack()
-  }, [badgeCount])
-
   const handlePayShoppingCart = () => {
     Alert.alert(
       '¡Compra exitosa!',
