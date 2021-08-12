@@ -2,10 +2,8 @@
 
 Estimados Devs/TechLeads/CTO/RevisoresDePruebas espero que les guste el desarrollo de mi prueba, creo haber cumplido con todos los requisitos excepto por 2 cosas:
 
-1. Validación de números negativos en los productos del mini cart.
-2. Refresh de número de cantidad del producto agregado al carro. Se muestra pero para que se actualicé en el mini cart hay que cerrar y abrir de nuevo.
-
-Además de lo mencionado anteriormente agregué unas cosas extra que a mi parecer deberian estar como por ejemplo cuando entras al mini cart y no tienes productos te muestra un mensaje y no puedes ir al checkout.
+1. Quitar todos los anys y reemplazar por su tipo/interface apropiado.
+2. Quitar todos los disable de eslint en los useEffect.
 
 ### How to run app?
 
@@ -57,11 +55,6 @@ Además de lo mencionado anteriormente agregué unas cosas extra que a mi parece
     - Generar documentación del proyecto ya que es tanto útil para los nuevos miembros del equipo como para mi.
     - Llevar un buen Gitflow
     - Hmmmm :thinking:
-
-### Pending Tasks
-
-1. Al momento de sumar o restar elementos en el overlay del carrito no se refresca el valor de la cantidad.
-2. Validación números negativos en cantidad de un producto.
 
 ### Libraries & Dependencies
 
